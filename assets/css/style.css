@@ -1,12 +1,6 @@
 body {
   background-color: #a5978b;
 }
-.main__input {
-  display: none;
-}
 .main__search {
-  font-size: 100px;
-}
-.main__search:hover {
-  color: #00f;
+  font-size: 50px;
 }

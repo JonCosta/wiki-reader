@@ -7,24 +7,31 @@
     <title>Wiki Reader</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/css/bootstrap.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link href="https://fonts.googleapis.com/css?family=Inknut+Antiqua" rel="stylesheet"> 
     <link rel="stylesheet" href="./assets/css/style.css">
 </head>
 <body>
-    
+
     <div class="container">
+
+        <h1 class="title">Wikipedia Reader</h1>
+
         <div class="main">
             <a href="#" class="main__random">Search for a random page</a>
-            <input type="search" name="wiki" class="main__input">
-            <button class="btn btn-warning main__search">
-                <i class="fa fa-search" aria-hidden="true"></i>
-            </button>
+
+            <div class="input-group input-group-lg main__group">
+                <input type="text" class="form-control main__input" placeholder="Search for a page">
+                <span class="input-group-btn">
+                    <button class="btn btn-default main__button">
+                        <i class="fa fa-search" aria-hidden="true"></i>
+                    </button>
+                </span>
+            </div>
+
         </div>
 
         <div class="row search">
-            <div class="col-md-10 col-xs-12 search__item">
-                <h3>Titulo</h3>
-                <p>Conteúdo da página</p>
-            </div>
+            
         </div>
     </div>
 

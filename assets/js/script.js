@@ -1,25 +1,36 @@
 $(function () {
 
-    // onClick() -> Opens the input field
-    $(".main__search").click(function () {
-        $(".main__input").show();
-    });
+    // onClick() -> Searches for pages with the input field value
+    $(".main__button").click(function () {
 
-    // onChange() -> Searches for pages with the input field value
-    $(".main__input").change(function () {
-
-        var txt = $(this).val().replace(" ", "20%");
+        if ($(".main__input").val() == "") {
+            return false;
+        }
+        $(".search").html("");
+        var txt = $(".main__input").val().replace(" ", "20%");
         $.ajax({
             url: "https://en.wikipedia.org/w/api.php",
             data: {
                 action: 'query',
                 format: 'json',
                 list: 'search',
+                inprop: 'url',
                 srsearch: txt
             },
             dataType: 'jsonp',
             success: function (data) {
                 console.log(data);
+                for (i in data.query.search) {
+                    var page = data.query.search[i];
+                    var insert = '<div class="col-xs-12 search__item">'
+                    + '<h3 class="search__title">'
+                    + '<a href="https://www.wikipedia.org/wiki/'+ encodeURI(page.title) +'" target="_blank">'
+                    + page.title +'</a></h3>'
+                    + '<hr />'
+                    + '<p class="search__snippet">'+ page.snippet +'</p>'
+                    + '</div>';
+                    $(".search").append(insert);
+                }
             },
             error: function () {
                 console.log("Error looking for data");

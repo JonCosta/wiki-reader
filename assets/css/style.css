@@ -1,6 +1,15 @@
 body {
   background-color: #a5978b;
 }
-.main__search {
-  font-size: 50px;
+.title {
+  color: #fff;
+  font-family: 'Inknut Antiqua', cursive;
+  font-size: 40px;
+}
+.main {
+  margin-top: 30px;
+}
+.search__item {
+  background-color: #fff;
+  margin: 5px 0;
 }

@@ -1,12 +1,18 @@
 $(function () {
 
+    $(".main__input").keyup(function(e) {
+        if (e.keyCode == 13) {
+            $(".main__button").trigger("click");
+        }
+    })
+    
     // onClick() -> Searches for pages with the input field value
     $(".main__button").click(function () {
 
         if ($(".main__input").val() == "") {
             return false;
         }
-        $(".search").html("");
+        $(".result").fadeOut();
         var txt = $(".main__input").val().replace(" ", "20%");
         $.ajax({
             url: "https://en.wikipedia.org/w/api.php",
@@ -14,23 +20,23 @@ $(function () {
                 action: 'query',
                 format: 'json',
                 list: 'search',
-                inprop: 'url',
                 srsearch: txt
             },
             dataType: 'jsonp',
             success: function (data) {
                 console.log(data);
+                $(".result").html("");
                 for (i in data.query.search) {
                     var page = data.query.search[i];
-                    var insert = '<div class="col-xs-12 search__item">'
-                    + '<h3 class="search__title">'
+                    var insert = '<div class="col-xs-12 result__item">'
+                    + '<h3 class="result__title">'
                     + '<a href="https://www.wikipedia.org/wiki/'+ encodeURI(page.title) +'" target="_blank">'
                     + page.title +'</a></h3>'
-                    + '<hr />'
-                    + '<p class="search__snippet">'+ page.snippet +'</p>'
+                    + '<p class="result__snippet">'+ page.snippet +'</p>'
                     + '</div>';
-                    $(".search").append(insert);
+                    $(".result").append(insert);
                 }
+                $(".result").fadeIn();
             },
             error: function () {
                 console.log("Error looking for data");
@@ -52,6 +58,7 @@ $(function () {
                 prop: 'info',
                 inprop: 'url',
                 grnlimit: 1,
+                grnnamespace: 0
             },
             dataType: "jsonp",
             success: function (data) {

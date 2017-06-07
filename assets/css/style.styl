@@ -1,21 +1,88 @@
-$bg-color = #A5978B
-$title-font = 'Inknut Antiqua', cursive
+$bg-color = #494036
+$font-color = #F3E9DC
+$footer-color = #c2574a
+$link-color = #ed6a5a
+$link-hover-color = #f08578
+$result-color = #d8d3c0
+
+$title-font = 'Cormorant SC', cursive
 
 body {
     background-color: $bg-color
+    padding-bottom: 70px
 }
 
 .title {
-    color: #fff
+    color: $font-color
+    cursor: default
     font-family: $title-font
-    font-size: 40px
+    font-size: 60px
+    text-align: center
 }
+
+// MAIN -> Contains the search input field, random page link and search button
 
 .main {
     margin-top: 30px;
+    
+    .main__random {
+        color: $link-color
+        font-size: 20px
+        font-weight: bold
+    }
+
+    .main__random:hover {
+        color: $link-hover-color
+    }
+
+    .main__group {
+        margin: 20px 0
+    }
+
+    .main__input {
+        opacity: 0.8
+    }
+
+    .main__button {
+        background-color: $link-color
+        border: 0
+        color: $font-color
+    }
+
+    .main__button:hover {
+        background-color: $link-hover-color
+        color: $font-color
+    }
 }
 
-.search__item {
-    background-color: #fff;
-    margin: 5px 0
+
+// RESULT -> Section for search results (Automatically inserted Divs)
+.result {
+    display: none
+    
+    .result__item {
+        background-color: $result-color;
+        border-radius: 8px
+        margin: 5px 0
+    }
+
+    .result__title > a {
+        color: $link-color
+        font-family: $title-font
+        font-weight: bold
+    }
+
+}
+
+
+.footer__wrap {
+    background-color: $footer-color
+    padding: 15px 15px
+
+    .footer__text {
+        color: $font-color
+        font-weight: bold
+        margin: 0 auto
+        text-align: center
+    }
 }

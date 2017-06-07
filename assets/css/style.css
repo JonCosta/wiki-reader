@@ -35,12 +35,12 @@ body {
   background-color: #f08578;
   color: #f3e9dc;
 }
-.result {
+.result .result__section {
   display: none;
 }
 .result .result__item {
   background-color: #d8d3c0;
-  border-radius: 8px;
+  border-radius: 5px;
   margin: 5px 0;
 }
 .result .result__title > a {

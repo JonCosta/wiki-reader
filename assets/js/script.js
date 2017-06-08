@@ -24,36 +24,6 @@ $(function () {
         searchPages(currentSearch, continueSearch);
     }); // endof onChange
 
-    // onClick() -> Searches for a random Wiki Page
-    $(".main__random").click(function () {
-        // Generate a random number to be the page's ID
-        var randomId = Math.floor(Math.random() * 10 ** 6) + 1
-
-        $.ajax({
-            url: "https://en.wikipedia.org/w/api.php",
-            data: {
-                action: 'query',
-                generator: 'random',
-                format: 'json',
-                prop: 'info',
-                inprop: 'url',
-                grnlimit: 1,
-                grnnamespace: 0
-            },
-            dataType: "jsonp",
-            success: function (data) {
-                for (page in data.query.pages) {
-                    window.open(data.query.pages[page].fullurl);
-                }
-            },
-            error: function () {
-                console.log("Error looking for data");
-            }
-        }); // endof ajax
-
-        // window.open(data.query.pages[randomId].fullurl);
-    }); // endof onClick
-
     // Triggers continue search when reaching bottom
     $(window).scroll(function () {
         if ($(window).scrollTop() + $(window).height() == $(document).height()) {
@@ -100,12 +70,12 @@ $(function () {
         $(".result").append('<div class="result__section"></div>');
         for (i in pages) {
             var page = pages[i];
-            var insert = '<div class="col-xs-12 result__item">'
-                + '<h3 class="result__title">'
-                + '<a href="https://www.wikipedia.org/wiki/' + encodeURI(page.title) + '" target="_blank">'
-                + page.title + '</a></h3>'
-                + '<p class="result__snippet">' + page.snippet + '</p>'
-                + '</div>';
+            var insert = `<div class="col-xs-12 result__item">
+                  <h3 class="result__title">
+                    <a href="https://www.wikipedia.org/wiki/${encodeURI(page.title)}" target="_blank">${page.title}</a>
+                  </h3>
+                  <p class="result__snippet">${page.snippet}...</p>
+                </div>`;
             $(".result__section:last-child").append(insert);
         }
         $(".result__section:last-child").fadeIn();

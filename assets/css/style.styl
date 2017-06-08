@@ -1,11 +1,13 @@
 $bg-color = #494036
+$button-color = #ed6a5a
 $font-color = #F3E9DC
 $footer-color = #c2574a
-$link-color = #ed6a5a
 $link-hover-color = #f08578
+$result-title-color = #2a7a9c
 $result-color = #d8d3c0
 
 $title-font = 'Cormorant SC', cursive
+$result-title-font = 'Roboto', sans-serif
 
 body {
     background-color: $bg-color
@@ -26,8 +28,8 @@ body {
     margin-top: 30px;
     
     .main__random {
-        color: $link-color
-        font-size: 20px
+        color: $button-color
+        font-size: 30px
         font-weight: bold
     }
 
@@ -44,7 +46,7 @@ body {
     }
 
     .main__button {
-        background-color: $link-color
+        background-color: $button-color
         border: 0
         color: $font-color
     }
@@ -70,13 +72,23 @@ body {
     }
 
     .result__title > a {
-        color: $link-color
-        font-family: $title-font
+        color: $result-title-color
+        font-family: $result-title-font
         font-weight: bold
+    }
+
+    .result__error {
+        color: $font-color
+        text-align: center
     }
 
 }
 
+.loading {
+    color: $font-color
+    display: none
+    text-align: center
+}
 
 .footer__wrap {
     background-color: $footer-color

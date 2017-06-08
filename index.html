@@ -4,17 +4,17 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Wiki Reader</title>
+    <title>Wikipedia Viewer</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/css/bootstrap.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-    <link href="https://fonts.googleapis.com/css?family=Cormorant+SC" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Cormorant+SC|Roboto" rel="stylesheet">
     <link rel="stylesheet" href="./assets/css/style.css">
 </head>
 <body>
 
     <div class="container">
 
-        <h1 class="title">Wikipedia Reader</h1>
+        <h1 class="title">Wikipedia Viewer</h1>
 
         <div class="main">
             <a href="https://en.wikipedia.org/wiki/Special:Random" class="main__random" target="_blank">Open a Random Page!</a>
@@ -27,11 +27,12 @@
                     </button>
                 </span>
             </div>
-
         </div>
 
-        <div class="row result">
-            
+        <div class="row result"></div>
+
+        <div class="loading">
+            <i class="fa fa-cog fa-5x fa-spin"></i>
         </div>
     </div>
 

@@ -14,7 +14,7 @@ body {
 }
 .main .main__random {
   color: #ed6a5a;
-  font-size: 20px;
+  font-size: 30px;
   font-weight: bold;
 }
 .main .main__random:hover {
@@ -44,9 +44,18 @@ body {
   margin: 5px 0;
 }
 .result .result__title > a {
-  color: #ed6a5a;
-  font-family: 'Cormorant SC', cursive;
+  color: #2a7a9c;
+  font-family: 'Roboto', sans-serif;
   font-weight: bold;
+}
+.result .result__error {
+  color: #f3e9dc;
+  text-align: center;
+}
+.loading {
+  color: #f3e9dc;
+  display: none;
+  text-align: center;
 }
 .footer__wrap {
   background-color: #c2574a;

@@ -26,7 +26,7 @@ $(function () {
 
     // Triggers continue search when reaching bottom
     $(window).scroll(function () {
-        if ($(window).scrollTop() + $(window).height() == $(document).height()) {
+        if ($(window).scrollTop() + $(window).height() == $(document).height() && $(".result").html().length > 0 ) {
             searchPages(currentSearch, continueSearch);
         }
     });
@@ -49,6 +49,9 @@ $(function () {
                 sroffset: cont.sroffset
             },
             dataType: 'jsonp',
+            beforeSend: function() {
+                $(".loading").fadeIn();
+            },
             success: function (data) {
                 if (data.hasOwnProperty("continue")) {
                     continueSearch = data.continue;
@@ -56,7 +59,13 @@ $(function () {
                 insertResultSection(data.query.search);
             },
             error: function () {
-                console.log("Error looking for data");
+                $(".result").append('<div class="result__section"></div>');
+                $(".result__section:last-child").html(`<h3 class="result__error">Sorry, we had a little problem. :(</h3>
+                    <h3 class="result__error">Please try again later.</h3>`);
+                $(".result__section:last-child").fadeIn();
+            },
+            complete: function() {
+                $(".loading").fadeOut();
             }
         }); // endof ajax
 
@@ -79,6 +88,7 @@ $(function () {
             $(".result__section:last-child").append(insert);
         }
         $(".result__section:last-child").fadeIn();
+        $(".loading").hide();
     } // endof insertResultSection()
     
 });
